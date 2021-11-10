@@ -11,4 +11,5 @@ for name in listdir("./blueprints"):
             app.blueprint(module.bp)
                                                   
 if __name__ == "__main__":
+    print("start")
     app.run(host = "0.0.0.0", port = 8000)
