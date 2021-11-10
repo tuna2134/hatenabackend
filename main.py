@@ -3,6 +3,7 @@ from importlib import import_module
 from os import listdir
 from jinja2 import Environment, FileSystemLoader
 from flask_misaka import Misaka
+import aiomysql
 from sanic.response import html
 
 app = Sanic("hatenabot")
