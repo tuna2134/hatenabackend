@@ -1,3 +1,5 @@
 sanic
 gunicorn
 ujson
+jinja2
+Flask-Misaka
