@@ -11,7 +11,7 @@ async def gateway(request, ws):
     while True:
         data = loads(await ws.recv())
         if data["t"] == "LOGIN":
-            if data["token"] == "questiongateway":
+            if data["d"]["token"] == "questiongateway":
                 bp.app.wslist.append(ws)
                 await ws.send(dumps({
                     "t": "LOGIN"
