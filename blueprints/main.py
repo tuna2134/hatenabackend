@@ -5,4 +5,4 @@ bp = Blueprint("main")
 
 @bp.route("/")
 async def main(request):
-    return text("Hello")
+    return await bp.app.ctx.template("index.html")
