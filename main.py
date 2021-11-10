@@ -7,6 +7,8 @@ import aiomysql
 from sanic.response import html
 
 app = Sanic("hatenabot")
+app.static('/static', './static')
+
 
 @app.listener("before_server_start")
 async def setup(app, loop):
