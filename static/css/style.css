@@ -6,6 +6,6 @@ html {
 a {
   text-decoration: none;
 }
-.main-nav {
+.main-nav li {
   display: flex;
 }
