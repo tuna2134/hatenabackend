@@ -3,3 +3,4 @@ gunicorn
 ujson
 jinja2
 Flask-Misaka
+aiomysql
