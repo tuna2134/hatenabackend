@@ -12,7 +12,7 @@ async def gateway(request, ws):
         data = loads(await ws.recv())
         if data["t"] == "LOGIN":
             if data["d"]["token"] == "questiongateway":
-                bp.app.wslist.append(ws)
+                bp.app.ctx.wslist.append(ws)
                 await ws.send(dumps({
                     "t": "LOGIN"
                 }))
