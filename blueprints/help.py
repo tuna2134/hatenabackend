@@ -21,6 +21,6 @@ async def help_setting(request):
     global data
     data = request.json
     return json({
-        "status": 400,
+        "status": 200,
         "message": "success"
     })
