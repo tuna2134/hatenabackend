@@ -4,8 +4,6 @@ from ujson import loads
 
 bp = Blueprint("help")
 
-data = None
-
 @bp.route("/help")
 async def help_show(request):
     print(data)
