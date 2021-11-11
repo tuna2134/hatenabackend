@@ -9,7 +9,7 @@ async def help_show(request):
     return await bp.app.ctx.template("help.html", data = data)
 
 @bp.route("/help/<category>")
-async def help_category(self, request, category):
+async def help_category(request, category):
     return await bp.app.ctx.template("help_category.html", category=category, data=self.data[category])
 
 @bp.route("/api/help", methods = ["POST"])
