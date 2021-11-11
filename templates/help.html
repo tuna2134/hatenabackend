@@ -4,6 +4,6 @@
 {% for i in data %}
 <div class="help-category">
 <h3><a href="/help/{{ i }}">{{ i }}</a></h3>
-<p>{{ i["description"] }}</p>
+<p>{{ data[i]["description"] }}</p>
 {% endfor %}
 {% endblock %}
