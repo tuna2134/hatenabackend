@@ -4,6 +4,8 @@ from ujson import loads
 
 bp = Blueprint("help")
 
+data = None
+
 @bp.route("/help")
 async def help_show(request):
     return await bp.app.ctx.template("help.html", data = data)
