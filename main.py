@@ -5,6 +5,7 @@ from jinja2 import Environment, FileSystemLoader
 from flask_misaka import Misaka
 import aiomysql
 from sanic.response import html
+from os import getenv
 
 app = Sanic("hatenabot")
 app.static('/static', './static')
@@ -18,7 +19,7 @@ async def setup(app, loop):
         template = app.ctx.env.get_template(tpl)
         return html(await template.render_async(kwargs))
     app.ctx.template = template
-    app.ctx.pool = await aiomysql.create_pool(host="public-cbsv1.net.rikusutep.xyz", user="dms", password="dms", loop=loop, db="b3vad_rtbot", autocommit=True)
+    app.ctx.pool = await aiomysql.create_pool(host="public-cbsv1.net.rikusutep.xyz", user="dms", password=getenv("db_password"), loop=loop, db="b3vad_rtbot", autocommit=True)
     app.ctx.wslist = []
     
 async def gateway_send(data: dict):
