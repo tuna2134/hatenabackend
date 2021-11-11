@@ -19,6 +19,13 @@ async def setup(app, loop):
         return html(await template.render_async(kwargs))
     app.ctx.template = template
     app.ctx.pool = await aiomysql.create_pool(host="public-cbsv1.net.rikusutep.xyz", user="dms", password="dms", loop=loop, db="b3vad_rtbot", autocommit=True)
+    
+async def gateway_send(data: dict):
+    for ws in app.ctx.wslist:
+        try:
+            await ws.send(dumps(data))
+        except:
+            app.ctx.wslist.remove(ws)
 
 for name in listdir("./blueprints"):
     if not name.startswith("_"):
