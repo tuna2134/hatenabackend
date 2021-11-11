@@ -14,7 +14,7 @@ app.static('/static', './static')
 @app.listener("before_server_start")
 async def setup(app, loop):
     app.ctx.env = Environment(loader=FileSystemLoader('./templates/', encoding='utf8'), enable_async=True)
-    app.ctx.env.filters.setdefault("markdown", Misaka(autolink=True))
+    app.ctx.env.filters.setdefault("markdown", Misaka(autolink=True, wrap=True).render)
     async def template(tpl, **kwargs):
         template = app.ctx.env.get_template(tpl)
         return html(await template.render_async(kwargs))
