@@ -1,5 +1,6 @@
 from sanic import Blueprint
 from sanic.response import json
+from ujson import loads
 
 bp = Blueprint("help")
 
@@ -10,7 +11,7 @@ async def help_show(request):
 
 @bp.route("/api/help", methods = ["POST"])
 async def help_setting(request):
-    bp.app.ctx.help = request.json
+    bp.app.ctx.help = loads(request.json)
     return json({
         "status": 400,
         "message": "success"
