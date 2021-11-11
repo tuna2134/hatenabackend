@@ -8,6 +8,7 @@ data = None
 
 @bp.route("/help")
 async def help_show(request):
+    print(data)
     return await bp.app.ctx.template("help.html", data = data)
 
 @bp.route("/api/help", methods = ["POST"])
