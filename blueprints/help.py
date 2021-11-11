@@ -1,6 +1,6 @@
 from sanic import Blueprint
 
-bp = Blueprint
+bp = Blueprint("help")
 
 @bp.route("/api/help", methods = ["POST"])
 async def help_setting(request):
