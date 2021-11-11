@@ -19,6 +19,7 @@ async def setup(app, loop):
         return html(await template.render_async(kwargs))
     app.ctx.template = template
     app.ctx.pool = await aiomysql.create_pool(host="public-cbsv1.net.rikusutep.xyz", user="dms", password="dms", loop=loop, db="b3vad_rtbot", autocommit=True)
+    app.ctx.wslist = []
     
 async def gateway_send(data: dict):
     for ws in app.ctx.wslist:
