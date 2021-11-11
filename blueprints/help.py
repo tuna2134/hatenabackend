@@ -8,6 +8,10 @@ bp = Blueprint("help")
 async def help_show(request):
     return await bp.app.ctx.template("help.html", data = data)
 
+@bp.route("/help/<category>")
+async def help_category(self, request, category):
+    return await bp.app.ctx.template("help_category.html", category=category, data=self.data[category])
+
 @bp.route("/api/help", methods = ["POST"])
 async def help_setting(request):
     global data
