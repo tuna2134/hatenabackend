@@ -11,6 +11,7 @@ async def help_show(request):
 
 @bp.route("/api/help", methods = ["POST"])
 async def help_setting(request):
+    print(request.json)
     global data
     data = request.json
     return json({
