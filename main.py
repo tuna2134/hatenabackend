@@ -26,6 +26,8 @@ async def gateway_send(data: dict):
             await ws.send(dumps(data))
         except:
             app.ctx.wslist.remove(ws)
+            
+app.ctx.gateway_send = gateway_send
 
 for name in listdir("./blueprints"):
     if not name.startswith("_"):
