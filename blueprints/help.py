@@ -14,7 +14,7 @@ async def help_category(request, category):
 
 @bp.route("/help/<category>/<cmd>")
 async def help_command(request, category, cmd):
-    return await bp.ctx.template.template("help_command.html", cmd=cmd, data=data[category]["command"][cmd][1])
+    return await bp.ctx.template("help_command.html", cmd=cmd, data=data[category]["command"][cmd][1])
 
 @bp.route("/api/help", methods = ["POST"])
 async def help_setting(request):
