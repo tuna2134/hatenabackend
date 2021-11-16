@@ -17,3 +17,5 @@ async def gateway(request, ws):
                 await ws.send(dumps({
                     "t": "LOGIN"
                 }))
+        else:
+            await bp.dispatch(data["t"], data["d"])
